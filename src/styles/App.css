@@ -42,17 +42,18 @@ body {
 
 .mainSection {
   display: grid;
-  grid-template-columns: minmax(850px, 1100px);
+  grid-template-columns: minmax(700px, 900px);
   justify-content: center;
   align-items: center;
 }
 
 .playGround {
   height: 100%;
+  width: 100%;
   padding: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 180px));
-  grid-auto-rows: 250px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 160px));
+  grid-auto-rows: 230px;
   justify-content: center;
   align-content: center;
   gap: 35px;

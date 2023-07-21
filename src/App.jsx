@@ -30,8 +30,6 @@ const initialComponents = [
   { item: RickPrime, id: uuidv4() },
 ];
 
-// remember to test is fetch is called only on mount
-
 function App() {
   const [components, setComponents] = useState(initialComponents);
   const [score, setScore] = useState(0);
@@ -111,8 +109,8 @@ function App() {
     let visited = [];
     let copy = [...components];
 
-    while (randomComponents.length < 10) {
-      let randomNum = Math.floor(Math.random() * 10);
+    while (randomComponents.length < 12) {
+      let randomNum = Math.floor(Math.random() * 12);
       const numVisited = isNumVisited(visited, randomNum);
 
       if (numVisited === false) {
