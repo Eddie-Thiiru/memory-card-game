@@ -12,9 +12,12 @@ import UnknownRick from "./components/UnknownRick";
 import YoungRick from "./components/YoungRick";
 import RickPrime from "./components/RickPrime";
 import { v4 as uuidv4 } from "uuid";
+import "./styles/App.css";
+import "./styles/Cards.css";
 
 const initialComponents = [
   { item: GeneralRick, id: uuidv4() },
+  { item: AdjudicatorRick, id: uuidv4() },
   { item: EvilRick, id: uuidv4() },
   { item: LongHairRick, id: uuidv4() },
   { item: RickSanchez, id: uuidv4() },
@@ -49,15 +52,31 @@ function App() {
   ]);
 
   return (
-    <div className="mainSection">
-      <div className="playGround">
-        {components.map((obj) => {
-          let Component = obj.item;
-          let uniqueId = obj.id;
-
-          return <Component key={uniqueId} />;
-        })}
+    <div className="App">
+      <div className="header">
+        <div className="title">
+          <p>
+            FantasyHeroes
+            <br /> <span>Memory Game</span>
+          </p>
+        </div>
+        <div className="scoreBoard">
+          <p>
+            Score: <span>{score}</span> | Best Score: <span>{bestScore}</span>
+          </p>
+        </div>
       </div>
+      <div className="mainSection">
+        <div className="playGround">
+          {components.map((obj) => {
+            let Component = obj.item;
+            let uniqueId = obj.id;
+
+            return <Component key={uniqueId} />;
+          })}
+        </div>
+      </div>
+      <div className="footer">copyright @ FantasyHeroes</div>
     </div>
   );
 }
