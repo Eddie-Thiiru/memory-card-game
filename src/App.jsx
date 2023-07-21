@@ -149,7 +149,11 @@ function App() {
           })}
         </div>
       </div>
-      <div className="footer">copyright @ FantasyHeroes</div>
+      <div className="footer">
+        <p>
+          <span>© </span> 2023 Eddie Thiiru
+        </p>
+      </div>
     </div>
   );
 }
