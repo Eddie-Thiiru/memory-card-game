@@ -7,7 +7,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        "https://rickandmortyapi.com/api/character/1"
+        "https://rickandmortyapi.com/api/character/1",
       );
 
       const data = await response.json();
