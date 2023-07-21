@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import GeneralRick from "./components/ GeneralRick";
 import AdjudicatorRick from "./components/AdjudicatorRick";
 import EvilRick from "./components/EvilRick";
@@ -51,8 +51,13 @@ function App() {
     { name: "rickPrime", hit: false },
   ]);
 
+  useEffect(() => {
+    randomizeCards();
+  }, []);
+
   const handleClicks = (e) => {
     addScore(e);
+    randomizeCards();
   };
 
   const addScore = (e) => {
@@ -88,6 +93,37 @@ function App() {
 
       gameOver = false;
     }
+  };
+
+  const randomizeCards = () => {
+    const isNumVisited = (array, num) => {
+      for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+
+        if (element === num) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    let randomComponents = [];
+    let visited = [];
+    let copy = [...components];
+
+    while (randomComponents.length < 10) {
+      let randomNum = Math.floor(Math.random() * 10);
+      const numVisited = isNumVisited(visited, randomNum);
+
+      if (numVisited === false) {
+        let component = copy[randomNum];
+
+        randomComponents.push(component);
+        visited.push(randomNum);
+      }
+    }
+
+    setComponents(randomComponents);
   };
 
   return (
