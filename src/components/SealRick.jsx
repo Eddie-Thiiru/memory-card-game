@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const SealRick = () => {
+const SealRick = ({ cardClicked }) => {
   const [data, setData] = useState({
     characterName: "",
     imageUrl: "",
@@ -24,7 +24,7 @@ const SealRick = () => {
   }, []);
 
   return (
-    <div className="card" id="sealRick">
+    <div className="card" id="sealRick" onClick={cardClicked}>
       <img src={data.imageUrl} alt={data.characterName} />
       <p>{data.characterName}</p>
     </div>

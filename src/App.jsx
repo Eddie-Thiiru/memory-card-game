@@ -51,12 +51,51 @@ function App() {
     { name: "rickPrime", hit: false },
   ]);
 
+  const handleClicks = (e) => {
+    addScore(e);
+  };
+
+  const addScore = (e) => {
+    const characterName = e.target.id;
+    let gameOver = false;
+
+    setCharacters(
+      characters.map((item) => {
+        if (item.name === characterName) {
+          if (item.hit === false) {
+            setScore(score + 1);
+            return { ...item, hit: true };
+          } else {
+            gameOver = true;
+            return item;
+          }
+        } else {
+          return item;
+        }
+      }),
+    );
+
+    if (gameOver === true) {
+      let value = bestScore > score ? bestScore : score;
+
+      setScore(0);
+      setBestScore(value);
+      setCharacters(
+        characters.map((item) => {
+          return { ...item, hit: false };
+        }),
+      );
+
+      gameOver = false;
+    }
+  };
+
   return (
     <div className="App">
       <div className="header">
         <div className="title">
           <p>
-            FantasyHeroes
+            CitadelofRicks
             <br /> <span>Memory Game</span>
           </p>
         </div>
@@ -72,7 +111,7 @@ function App() {
             let Component = obj.item;
             let uniqueId = obj.id;
 
-            return <Component key={uniqueId} />;
+            return <Component key={uniqueId} cardClicked={handleClicks} />;
           })}
         </div>
       </div>
