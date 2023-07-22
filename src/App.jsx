@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import StartScreen from "./components/StartScreen";
 import GeneralRick from "./components/ GeneralRick";
 import AdjudicatorRick from "./components/AdjudicatorRick";
 import EvilRick from "./components/EvilRick";
@@ -31,6 +32,7 @@ const initialComponents = [
 ];
 
 function App() {
+  const [loading, setLoading] = useState(true);
   const [components, setComponents] = useState(initialComponents);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
@@ -50,7 +52,14 @@ function App() {
   ]);
 
   useEffect(() => {
-    randomizeCards();
+    const timeout = setTimeout(() => {
+      setLoading(false);
+      randomizeCards();
+    }, 3500);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, []);
 
   const handleClicks = (e) => {
@@ -124,41 +133,45 @@ function App() {
     setComponents(randomComponents);
   };
 
-  return (
-    <div className="App">
-      <div className="header">
-        <div className="title">
-          <p>
-            CitadelofRicks
-            <br /> <span>Memory Game</span>
-          </p>
+  if (loading === true) {
+    return <StartScreen />;
+  } else {
+    return (
+      <div className="App">
+        <div className="header">
+          <div className="title">
+            <p>
+              CitadelofRicks
+              <br /> <span>Memory Game</span>
+            </p>
+          </div>
+          <div className="scoreBoard">
+            <p>
+              Score: <span>{score}</span>
+            </p>
+            <p>
+              Best Score: <span>{bestScore}</span>
+            </p>
+          </div>
         </div>
-        <div className="scoreBoard">
-          <p>
-            Score: <span>{score}</span>
-          </p>
-          <p>
-            Best Score: <span>{bestScore}</span>
-          </p>
-        </div>
-      </div>
-      <div className="mainSection">
-        <div className="playGround">
-          {components.map((obj) => {
-            let Component = obj.item;
-            let uniqueId = obj.id;
+        <div className="mainSection">
+          <div className="playGround">
+            {components.map((obj) => {
+              let Component = obj.item;
+              let uniqueId = obj.id;
 
-            return <Component key={uniqueId} cardClicked={handleClicks} />;
-          })}
+              return <Component key={uniqueId} cardClicked={handleClicks} />;
+            })}
+          </div>
+        </div>
+        <div className="footer">
+          <p>
+            <span>© </span> 2023 Eddie Thiiru
+          </p>
         </div>
       </div>
-      <div className="footer">
-        <p>
-          <span>© </span> 2023 Eddie Thiiru
-        </p>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
