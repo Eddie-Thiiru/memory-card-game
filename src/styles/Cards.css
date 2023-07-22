@@ -1,6 +1,6 @@
 .card {
-  height: 230px;
-  width: 160px;
+  height: 200px;
+  width: 150px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,7 @@
 }
 
 img {
+  object-fit: cover;
   border-radius: 10px;
   height: 100%;
   width: 100%;
@@ -26,6 +27,6 @@ img {
 }
 
 .card:hover {
-  height: 240px;
-  width: 180px;
+  height: 215px;
+  width: 165px;
 }
