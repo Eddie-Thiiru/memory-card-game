@@ -135,7 +135,10 @@ function App() {
         </div>
         <div className="scoreBoard">
           <p>
-            Score: <span>{score}</span> | Best Score: <span>{bestScore}</span>
+            Score: <span>{score}</span>
+          </p>
+          <p>
+            Best Score: <span>{bestScore}</span>
           </p>
         </div>
       </div>
