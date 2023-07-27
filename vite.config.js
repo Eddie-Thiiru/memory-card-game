@@ -2,11 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
-export default defineConfig(() => {
-  return {
-    build: {
-      outDir: "public",
-    },
-    plugins: [react()],
-  };
+export default defineConfig({
+  plugins: [react()],
 });

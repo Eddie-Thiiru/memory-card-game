@@ -55,7 +55,7 @@ function App() {
     const timeout = setTimeout(() => {
       setLoading(false);
       randomizeCards();
-    }, 3500);
+    }, 2000);
 
     return () => {
       clearTimeout(timeout);
