@@ -13,6 +13,25 @@
   text-align: center;
 }
 
+.spinner {
+  height: 50px;
+  width: 50px;
+  border: 5px solid #767676;
+  border-radius: 50px;
+  border-top: 5px solid #66ff00;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .startScreen h1 {
   font-size: 3.25rem;
   color: #66ff00;
@@ -24,4 +43,14 @@
   font-size: 2rem;
   color: #767676;
   padding: 10px;
+}
+
+@media (max-width: 450px) {
+  .startScreen h1 {
+    font-size: 2.5rem;
+  }
+
+  .startScreen h2 {
+    font-size: 1.25rem;
+  }
 }

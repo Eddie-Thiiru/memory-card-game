@@ -4,7 +4,7 @@ const StartScreen = () => {
   return (
     <div className="startScreen">
       <h1>The CitadelofRicks</h1>
-      <h2>Loading...</h2>
+      <div className="spinner"></div>
     </div>
   );
 };

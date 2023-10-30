@@ -1,31 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik&family=Skranji&display=swap");
 
-@media screen and (min-width: 0px) and (max-width: 849px) {
-  .playGround {
-    width: 650px;
-  }
-}
-
-@media screen and (min-width: 850px) and (max-width: 1199px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  .playGround {
-    width: 850px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  .playGround {
-    width: 1200px;
-  }
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -117,4 +91,26 @@ body {
 
 p {
   padding: 5px;
+}
+
+@media (min-width: 450px) {
+  .playGround {
+    width: 400px;
+  }
+}
+
+@media (min-width: 850px) {
+  .playGround {
+    width: 650px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .playGround {
+    width: 1200px;
+  }
 }
